@@ -25,6 +25,6 @@ Route::get('/', [App\Http\Controllers\TodoController::class, 'index'])->name('to
 Route::get('/todo/create', [App\Http\Controllers\TodoController::class, 'create'])->name('todo.create');
 Route::POST('/todo/store', [App\Http\Controllers\TodoController::class, 'store'])->name('todo.store');
 Route::get('/todo/show/{id}', [App\Http\Controllers\TodoController::class, 'show'])->name('todo.show');
-Route::get('/todo/edit/{id}', [App\Http\Controllers\TodoController::class, 'edit'])->name('todo.edit');
+Route::get('/todo/edit/{id}', [App\Http\Controllers\TodoController::class, 'edit'])->name('todo.edit')->middleware('auth');
 Route::put('/todo/update', [App\Http\Controllers\TodoController::class, 'update'])->name('todo.update');
-Route::delete('/todo/destroy', [App\Http\Controllers\TodoController::class, 'destroy'])->name('todo.destroy');
+Route::delete('/todo/destroy', [App\Http\Controllers\TodoController::class, 'destroy'])->name('todo.destroy')->middleware('auth');
